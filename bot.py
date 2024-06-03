@@ -55,7 +55,7 @@ async def check_username(update: Update, context: CallbackContext) -> None:
         await update.message.reply_text("Please provide a username to check.")
 
 # Initialize the bot application
-app = ApplicationBuilder().token("7052876472:AAFpgLGLAPWIEyKoGCs5jgeNnRoA9w2aNDA").build()
+app = ApplicationBuilder().token("7435887193:AAFDJZjsKquYs8J8gA30cx4-FHEM7HwlYVg").build()
 
 # Add command handlers
 app.add_handler(CommandHandler("hello", hello))
