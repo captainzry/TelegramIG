@@ -2,6 +2,9 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, CallbackContext
 import requests
 import asyncio
+import os
+from keep_alive import keep_alive
+keep_alive()
 
 # Function to handle the /hello command
 async def hello(update: Update, context: CallbackContext) -> None:
