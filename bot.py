@@ -29,10 +29,10 @@ async def check_username_status(context: CallbackContext, username: str, chat_id
         response = req.text
 
         if "No users found" in response:
-            await context.bot.send_message(chat_id=chat_id, text=f"Username is banned already: {username}")
+            await context.bot.send_message(chat_id=chat_id, text=f"Username is banned: {username}")
             return False
         elif "email_or_sms_sent" in response or "Email Sent" in response:
-            await context.bot.send_message(chat_id=chat_id, text=f"Username is alive: {username}")
+            await context.bot.send_message(chat_id=chat_id, text=f"✅ Successfully active user {[username]}")
             return True
         else:
             await context.bot.send_message(chat_id=chat_id, text=response)
@@ -56,7 +56,7 @@ async def check_username(update: Update, context: CallbackContext) -> None:
         
         checks = 0
         while True:
-            await asyncio.sleep(200)  # Wait for 60 seconds
+            await asyncio.sleep(300)  # Wait for 300 seconds
             checks += 1
             if await check_username_status(context, username, chat_id):
                 break  # Stop the loop if username is alive
